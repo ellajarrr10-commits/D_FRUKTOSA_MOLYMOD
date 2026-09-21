@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>D-Fruktosa 3D Molymod</title>
+<script src="https://3dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+<style>body{margin:0;font-family:Arial;background:#eee}#v{height:85vh;width:100vw}.bar{padding:12px;background:white}</style>
+</head><body>
+<div class="bar"><b>D-Fruktosa (C₆H₁₂O₆) — Model 3D</b><br>
+Rantai terbuka; C2 merupakan karbonil/keton.<br><br>
+<button onclick="v.setStyle({},{stick:{}});v.render()">Stick</button>
+<button onclick="v.setStyle({},{sphere:{scale:.30},stick:{radius:.12}});v.render()">Molymod</button>
+<button onclick="v.zoomTo();v.render()">Reset</button></div>
+<div id="v"></div>
+<script>
+let v=$3Dmol.createViewer("v",{backgroundColor:"white"});
+v.addModel("\n     RDKit          3D\n\n 24 23  0  0  0  0  0  0  0  0999 V2000\n    3.5012    2.2028    0.9068 O   0  0  0  0  0  0  0  0  0  0  0  0\n    2.7908    1.1006    0.4122 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.7250    0.6883    1.3931 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.0582    0.2785    2.4952 O   0  0  0  0  0  0  0  0  0  0  0  0\n    0.2593    0.7304    1.0297 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0372    1.9941    0.4903 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0853   -0.3876    0.0107 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.3276   -1.6492    0.4821 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.5900   -0.4018   -0.3679 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.4073   -0.5464    0.7689 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.9050   -1.4840   -1.4193 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.2608   -1.4420   -1.7745 O   0  0  0  0  0  0  0  0  0  0  0  0\n    4.1514    1.8501    1.5692 H   0  0  0  0  0  0  0  0  0  0  0  0\n    2.3355    1.3850   -0.5593 H   0  0  0  0  0  0  0  0  0  0  0  0\n    3.4761    0.2439    0.2214 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.3320    0.5670    1.9635 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.9661    2.2191    0.7591 H   0  0  0  0  0  0  0  0  0  0  0  0\n    0.4846   -0.1820   -0.9221 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0502   -1.7751    1.3909 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.8331    0.5784   -0.8324 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.3201   -1.4803    1.0927 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.6806   -2.4915   -1.0090 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2686   -1.3390   -2.3223 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.3732   -0.6593   -2.3750 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0\n  2  3  1  0\n  3  4  2  0\n  3  5  1  0\n  5  6  1  0\n  5  7  1  0\n  7  8  1  0\n  7  9  1  0\n  9 10  1  0\n  9 11  1  0\n 11 12  1  0\n  1 13  1  0\n  2 14  1  0\n  2 15  1  0\n  5 16  1  0\n  6 17  1  0\n  7 18  1  0\n  8 19  1  0\n  9 20  1  0\n 10 21  1  0\n 11 22  1  0\n 11 23  1  0\n 12 24  1  0\nM  END\n","mol");
+v.setStyle({},{sphere:{scale:.30},stick:{radius:.12}});
+v.zoomTo();v.render();
+
+let spinning = true;
+let last = 0;
+function autoRotate(t) {
+  if (spinning && t - last > 30) {
+    v.rotate(1.2, "y");
+    v.render();
+    last = t;
+  }
+  requestAnimationFrame(autoRotate);
+}
+requestAnimationFrame(autoRotate);
+</script></body></html>
